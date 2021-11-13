@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    font-family:'Itim',cursive;
+    background: linear-gradient(180deg, #dff3f8 0%, #d9f5f5 100%);
+    justify-content: space-around;
+    color: #2f2c48;
+    font-size: 20px;
+    margin-top: -60px !important;
+}
+
+button{
+    border: 0;
+    background: #2F2C48;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid #1e1d2b;
+    color: #fff;
+    border-radius: 20px;
+    outline: 0;
+    padding: 6px 16px;
+    margin-bottom: 16px;
+    margin-left: 16px;
+    cursor: pointer;
+    transition-duration: .1s;
+}
+button:hover {
+    border: 0;
+    background: #166EC0;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid #125a9c;
+    color: #fff;
+    border-radius: 20px;
+    outline: 0;
+    padding: 6px 16px;
+    margin-bottom: 16px;
+    margin-left: 16px;
+    cursor: pointer;
+    transform: scale(1.05);
+}
