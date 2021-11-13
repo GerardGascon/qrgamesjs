@@ -1,14 +1,6 @@
 <template>
   <div style="height: 100vh">
     <qrcode-stream :camera="camera" @decode="onDecode" @init="onInit">
-      <div v-if="validationSuccess" class="validation-success">
-        This is a URL
-      </div>
-
-      <div v-if="validationFailure" class="validation-failure">
-        This is NOT a URL!
-      </div>
-
       <div v-if="validationPending" class="validation-pending">
         Loading...
       </div>
@@ -35,14 +27,6 @@ export default {
           return this.isValid === undefined
             && this.camera === 'off'
         },
-
-        validationSuccess () {
-          return this.isValid === true
-        },
-
-        validationFailure () {
-          return this.isValid === false
-        }
     },
 
     methods: {
@@ -58,18 +42,15 @@ export default {
 
         async onDecode (content) {
             let res = content.replace("http://", "")
-            this.result = res
+
+            document.getElementById("app").style = "display: none;"
+            document.getElementById("game").innerHTML = res;
+
+            var arr = document.getElementById("game").getElementsByTagName('script')
+            for (let i = 0; i < arr.length; i++)
+                eval(arr[i].innerHTML)
+                
             this.turnCameraOff()
-
-            console.log(content)
-            // pretend it's taking really long
-            await this.timeout(3000)
-            this.isValid = content.startsWith('http')
-
-            // some more delay, so users have time to read the message
-            await this.timeout(2000)
-
-            this.turnCameraOn()
         },
 
         turnCameraOn () {
