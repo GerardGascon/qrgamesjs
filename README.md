@@ -1,4 +1,4 @@
-# qrcodescanner
+# QrGamesJs
 
 ## Project setup
 ```
